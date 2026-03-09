@@ -1,0 +1,58 @@
+# ─── docker-compose.yml ───────────────────────────────────────────────────────
+# Orchestrates Backend (FastAPI) + Frontend (Streamlit) together.
+#
+# Quick start:
+#   1. cp .env.example .env
+#   2. Fill in GROQ_API_KEY and GEMINI_API_KEY in .env
+#   3. docker compose up --build
+#
+# Access:
+#   Frontend → http://localhost:8501
+#   Backend  → http://localhost:8000
+#   API Docs → http://localhost:8000/docs
+
+version: "3.9"
+
+services:
+
+  # ── FastAPI Backend ──────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: math-mentor-backend
+    env_file: .env
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist the SQLite memory DB and FAISS index across restarts
+      - math_data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # ── Streamlit Frontend ───────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: math-mentor-frontend
+    environment:
+      # Points to the backend service by its compose service name
+      - API_BASE_URL=http://backend:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  math_data:

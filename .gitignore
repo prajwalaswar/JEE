@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables — NEVER commit real secrets
+.env
+
+# Generated runtime data
+data/faiss_index/
+data/memory.db
+data/*.db
+
+# Logs
+*.log
+backend.log
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Docker
+*.dockercontainerignore
+
+# Model caches (faster-whisper / sentence-transformers download to these)
+models/
+.cache/

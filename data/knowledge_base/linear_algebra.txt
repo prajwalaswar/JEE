@@ -1,0 +1,79 @@
+# Linear Algebra & Vectors Knowledge Base — JEE Level
+
+## Vectors
+
+FORMULA: Magnitude: |a⃗| = √(x² + y² + z²)
+FORMULA: Unit vector: â = a⃗ / |a⃗|
+FORMULA: Dot product: a⃗·b⃗ = |a⃗||b⃗|cosθ = a₁b₁ + a₂b₂ + a₃b₃
+FORMULA: Cross product magnitude: |a⃗×b⃗| = |a⃗||b⃗|sinθ
+FORMULA: Cross product: a⃗×b⃗ = |i  j  k; a₁ a₂ a₃; b₁ b₂ b₃|
+FORMULA: Scalar triple product: [a⃗ b⃗ c⃗] = a⃗·(b⃗×c⃗) = det([a,b,c])
+  - Volume of parallelepiped = |[a⃗ b⃗ c⃗]|
+  - Coplanar if [a⃗ b⃗ c⃗] = 0
+
+FORMULA: Projection of a⃗ on b⃗ = (a⃗·b⃗)/|b⃗|
+FORMULA: Vector projection: (a⃗·b⃗/|b⃗|²) b⃗
+
+FORMULA: Section formula (internal): P = (m·B + n·A)/(m+n)
+FORMULA: Midpoint: M = (A + B)/2
+
+IDENTITY: a⃗·a⃗ = |a⃗|²
+IDENTITY: a⃗×a⃗ = 0⃗
+IDENTITY: a⃗·b⃗ = b⃗·a⃗  (commutative)
+IDENTITY: a⃗×b⃗ = -b⃗×a⃗  (anti-commutative)
+COMMON_MISTAKE: Cross product is NOT commutative — order matters.
+COMMON_MISTAKE: Dot product gives scalar; cross product gives vector.
+
+## 3D Geometry — Lines and Planes
+
+FORMULA: Line through (x₁,y₁,z₁) with direction (a,b,c):
+  Symmetric: (x-x₁)/a = (y-y₁)/b = (z-z₁)/c
+  Vector form: r⃗ = a⃗ + λb⃗
+
+FORMULA: Angle between lines: cosθ = |l₁l₂ + m₁m₂ + n₁n₂|
+FORMULA: Lines perpendicular if: l₁l₂ + m₁m₂ + n₁n₂ = 0
+FORMULA: Lines parallel if: l₁/l₂ = m₁/m₂ = n₁/n₂
+
+FORMULA: Plane equation: ax + by + cz + d = 0
+FORMULA: Normal vector to plane (ax+by+cz+d=0): (a,b,c)
+FORMULA: Distance from point (x₀,y₀,z₀) to plane: |ax₀+by₀+cz₀+d| / √(a²+b²+c²)
+FORMULA: Angle between planes: cosθ = |a₁a₂+b₁b₂+c₁c₂| / (|n₁||n₂|)
+FORMULA: Two planes parallel if: a₁/a₂ = b₁/b₂ = c₁/c₂
+FORMULA: Two planes perpendicular if: a₁a₂ + b₁b₂ + c₁c₂ = 0
+
+COMMON_MISTAKE: Distance formula requires normalisation by √(a²+b²+c²).
+
+## Eigenvalues and Eigenvectors
+
+FORMULA: Characteristic equation: det(A - λI) = 0
+FORMULA: Cayley-Hamilton: every matrix satisfies its own characteristic equation
+FORMULA: Sum of eigenvalues = trace(A)
+FORMULA: Product of eigenvalues = det(A)
+FORMULA: For diagonal matrix, eigenvalues are diagonal entries
+
+COMMON_MISTAKE: Eigenvectors are non-zero by definition — always check.
+
+## Linear Transformations
+
+FORMULA: Rotation matrix (2D, angle θ): [cosθ -sinθ; sinθ cosθ]
+FORMULA: Reflection about x-axis: [1 0; 0 -1]
+FORMULA: Scaling: [a 0; 0 b]
+
+## Trigonometry — Key Identities
+
+FORMULA: sin²θ + cos²θ = 1
+FORMULA: 1 + tan²θ = sec²θ
+FORMULA: 1 + cot²θ = csc²θ
+FORMULA: sin(A±B) = sinA cosB ± cosA sinB
+FORMULA: cos(A±B) = cosA cosB ∓ sinA sinB
+FORMULA: tan(A+B) = (tanA + tanB)/(1 - tanA tanB)
+FORMULA: sin(2A) = 2 sinA cosA
+FORMULA: cos(2A) = cos²A - sin²A = 2cos²A - 1 = 1 - 2sin²A
+FORMULA: tan(2A) = 2tanA/(1-tan²A)
+FORMULA: Product to sum: sinA sinB = ½[cos(A-B) - cos(A+B)]
+FORMULA: Sum to product: sinA + sinB = 2 sin((A+B)/2) cos((A-B)/2)
+FORMULA: Sine rule: a/sinA = b/sinB = c/sinC = 2R
+FORMULA: Cosine rule: a² = b² + c² - 2bc cosA
+FORMULA: Area of triangle = ½ ab sinC = √(s(s-a)(s-b)(s-c))  [Heron's formula, s=(a+b+c)/2]
+
+COMMON_MISTAKE: Mixing up sin(A+B) and sin(A)·sin(B) — they are NOT equal.

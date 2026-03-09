@@ -1,0 +1,87 @@
+# ─── render.yaml ─────────────────────────────────────────────────────────────
+# Render.com blueprint — deploys Backend + Frontend as two web services.
+#
+# How to use:
+#   1. Push this repo to GitHub.
+#   2. Go to https://dashboard.render.com → New → Blueprint
+#   3. Connect your GitHub repo → Render will detect this file automatically.
+#   4. Set the SECRET env vars (GROQ_API_KEY, GEMINI_API_KEY) in the Render
+#      dashboard under each service → Environment.
+#   5. Deploy!
+#
+# Free tier note: Services spin down after 15 min idle; first request is slow.
+
+services:
+
+  # ── FastAPI Backend ──────────────────────────────────────────────────────────
+  - type: web
+    name: math-mentor-backend
+    runtime: python
+    plan: free
+    region: oregon
+
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+
+    healthCheckPath: /health
+
+    envVars:
+      # ── Secrets — fill these in the Render dashboard ──────────────────────
+      - key: GROQ_API_KEY
+        sync: false          # Set manually in Render dashboard
+      - key: GEMINI_API_KEY
+        sync: false          # Set manually in Render dashboard
+
+      # ── Non-secret settings ───────────────────────────────────────────────
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: OCR_BACKEND
+        value: paddleocr
+      - key: OCR_CONFIDENCE_THRESHOLD
+        value: "0.75"
+      - key: WHISPER_MODEL_SIZE
+        value: base
+      - key: ASR_CONFIDENCE_THRESHOLD
+        value: "0.70"
+      - key: FASTER_WHISPER_DEVICE
+        value: cpu
+      - key: FASTER_WHISPER_COMPUTE_TYPE
+        value: int8
+      - key: VERIFIER_CONFIDENCE_THRESHOLD
+        value: "0.80"
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: TOP_K_RETRIEVAL
+        value: "5"
+      - key: LOG_LEVEL
+        value: INFO
+
+  # ── Streamlit Frontend ───────────────────────────────────────────────────────
+  - type: web
+    name: math-mentor-frontend
+    runtime: python
+    plan: free
+    region: oregon
+
+    buildCommand: |
+      pip install --upgrade pip
+      pip install streamlit>=1.35.0 requests>=2.31.0 python-dotenv>=1.0.0
+
+    startCommand: >
+      streamlit run frontend/app.py
+      --server.port $PORT
+      --server.address 0.0.0.0
+      --server.headless true
+
+    envVars:
+      # Replace with your actual backend URL after deploying the backend service
+      - key: API_BASE_URL
+        fromService:
+          name: math-mentor-backend
+          type: web
+          property: hostWithScheme

@@ -1,0 +1,126 @@
+# Calculus Knowledge Base — JEE Level
+
+## Limits
+
+FORMULA: lim(x→a) f(x) = L  means f(x) approaches L as x approaches a
+FORMULA: lim(x→0) sin(x)/x = 1
+FORMULA: lim(x→0) (1 - cos x)/x = 0
+FORMULA: lim(x→0) tan(x)/x = 1
+FORMULA: lim(x→0) (e^x - 1)/x = 1
+FORMULA: lim(x→0) (a^x - 1)/x = ln(a)
+FORMULA: lim(x→0) ln(1 + x)/x = 1
+FORMULA: lim(x→∞) (1 + 1/x)^x = e
+FORMULA: lim(x→∞) (1 + n/x)^x = e^n
+FORMULA: L'Hôpital's Rule: if lim f/g = 0/0 or ∞/∞, then lim f/g = lim f'/g'
+
+PATTERN: Sandwich theorem — if g(x) ≤ f(x) ≤ h(x) and lim g = lim h = L, then lim f = L
+PATTERN: Continuity at x=a requires: f(a) defined, limit exists, and limit = f(a)
+COMMON_MISTAKE: L'Hôpital only applies to 0/0 or ∞/∞ forms — verify the form first.
+COMMON_MISTAKE: lim sin(x)/x = 1 only when x → 0 in radians, not degrees.
+
+## Differentiation — Basic Rules
+
+FORMULA: d/dx [c] = 0   (constant rule)
+FORMULA: d/dx [x^n] = n·x^(n-1)   (power rule)
+FORMULA: d/dx [e^x] = e^x
+FORMULA: d/dx [a^x] = a^x · ln(a)
+FORMULA: d/dx [ln x] = 1/x
+FORMULA: d/dx [log_a x] = 1 / (x · ln a)
+FORMULA: d/dx [sin x] = cos x
+FORMULA: d/dx [cos x] = −sin x
+FORMULA: d/dx [tan x] = sec²x
+FORMULA: d/dx [cot x] = −csc²x
+FORMULA: d/dx [sec x] = sec x · tan x
+FORMULA: d/dx [csc x] = −csc x · cot x
+
+## Differentiation — Inverse Trig
+
+FORMULA: d/dx [sin⁻¹ x] = 1/√(1 − x²)
+FORMULA: d/dx [cos⁻¹ x] = −1/√(1 − x²)
+FORMULA: d/dx [tan⁻¹ x] = 1/(1 + x²)
+FORMULA: d/dx [cot⁻¹ x] = −1/(1 + x²)
+FORMULA: d/dx [sec⁻¹ x] = 1/(|x|·√(x² − 1))
+FORMULA: d/dx [csc⁻¹ x] = −1/(|x|·√(x² − 1))
+
+## Differentiation — Chain, Product, Quotient Rules
+
+FORMULA: Chain rule: d/dx [f(g(x))] = f'(g(x)) · g'(x)
+FORMULA: Product rule: d/dx [u·v] = u'v + uv'
+FORMULA: Quotient rule: d/dx [u/v] = (u'v − uv') / v²
+
+PATTERN: Implicit differentiation — differentiate both sides w.r.t. x, treat y as f(x)
+PATTERN: Parametric differentiation — dy/dx = (dy/dt) / (dx/dt)
+PATTERN: Logarithmic differentiation — take ln of both sides when base and exponent both contain x
+
+COMMON_MISTAKE: Chain rule is often forgotten for composite functions like sin(x²).
+COMMON_MISTAKE: Power rule fails for variable exponents like x^x — use logarithmic differentiation.
+
+## Applications of Derivatives
+
+FORMULA: Equation of tangent at (x₀, y₀): y − y₀ = f'(x₀)(x − x₀)
+FORMULA: Equation of normal at (x₀, y₀): y − y₀ = −1/f'(x₀) · (x − x₀)
+FORMULA: Rate of change: dy/dx measures rate y changes w.r.t. x
+FORMULA: Increasing function: f'(x) > 0; Decreasing: f'(x) < 0
+FORMULA: Local max/min: f'(x) = 0 (critical point), check f''(x)
+  - f''(x) < 0 → local maximum
+  - f''(x) > 0 → local minimum
+  - f''(x) = 0 → inconclusive, use first derivative test
+FORMULA: Absolute max/min on [a,b]: evaluate f at all critical points and endpoints
+FORMULA: Rolle's theorem: if f continuous on [a,b], differentiable on (a,b), f(a)=f(b), then ∃c∈(a,b): f'(c)=0
+FORMULA: Mean value theorem (MVT): ∃c∈(a,b): f'(c) = (f(b)−f(a))/(b−a)
+
+PATTERN: For optimization, set f'(x) = 0 and verify using second derivative or boundary check.
+COMMON_MISTAKE: Forgetting to check endpoints when finding global extrema on a closed interval.
+
+## Integration — Standard Formulas
+
+FORMULA: ∫ xⁿ dx = xⁿ⁺¹/(n+1) + C,  n ≠ −1
+FORMULA: ∫ 1/x dx = ln|x| + C
+FORMULA: ∫ e^x dx = e^x + C
+FORMULA: ∫ a^x dx = a^x / ln(a) + C
+FORMULA: ∫ sin x dx = −cos x + C
+FORMULA: ∫ cos x dx = sin x + C
+FORMULA: ∫ tan x dx = ln|sec x| + C  =  −ln|cos x| + C
+FORMULA: ∫ cot x dx = ln|sin x| + C
+FORMULA: ∫ sec x dx = ln|sec x + tan x| + C
+FORMULA: ∫ csc x dx = ln|csc x − cot x| + C
+FORMULA: ∫ sec²x dx = tan x + C
+FORMULA: ∫ csc²x dx = −cot x + C
+FORMULA: ∫ sec x tan x dx = sec x + C
+FORMULA: ∫ csc x cot x dx = −csc x + C
+FORMULA: ∫ 1/√(1−x²) dx = sin⁻¹x + C
+FORMULA: ∫ 1/(1+x²) dx = tan⁻¹x + C
+FORMULA: ∫ 1/(x√(x²−1)) dx = sec⁻¹x + C
+
+## Integration — Key Techniques
+
+FORMULA: Substitution: let u = g(x), du = g'(x)dx → ∫f(g(x))g'(x)dx = ∫f(u)du
+FORMULA: Integration by parts: ∫u dv = uv − ∫v du  (ILATE rule for choosing u)
+  ILATE order: Inverse trig, Logarithmic, Algebraic, Trigonometric, Exponential
+FORMULA: ∫ ln x dx = x ln x − x + C
+FORMULA: Definite integral: ∫[a to b] f(x)dx = F(b) − F(a)  (Fundamental Theorem)
+FORMULA: Area between curves: ∫[a to b] |f(x) − g(x)| dx
+
+PATTERN: Partial fractions for rational functions:
+  - Linear factors: A/(x−a) + B/(x−b)
+  - Repeated linear: A/(x−a) + B/(x−a)²
+  - Irreducible quadratic: (Ax+B)/(x²+bx+c)
+PATTERN: For ∫ sin^m x · cos^n x dx:
+  - Odd power of sin: substitute u = cos x
+  - Odd power of cos: substitute u = sin x
+  - Both even: use half-angle identities
+
+COMMON_MISTAKE: Forgetting the constant of integration C in indefinite integrals.
+COMMON_MISTAKE: Wrong sign when integrating sin/cos.
+
+## Differential Equations
+
+FORMULA: Separable ODE: dy/dx = f(x)g(y) → ∫dy/g(y) = ∫f(x)dx
+FORMULA: Linear first-order ODE: dy/dx + P(x)y = Q(x)
+  - Integrating factor: μ = e^∫P(x)dx
+  - Solution: y·μ = ∫Q(x)·μ dx
+FORMULA: Homogeneous ODE: dy/dx = f(y/x) → substitute v = y/x
+FORMULA: Exact ODE: M dx + N dy = 0 is exact if ∂M/∂y = ∂N/∂x
+
+COMMON_MISTAKE: Forgetting integrating factor when solving linear ODE.
+COMMON_MISTAKE: For separable ODE, cannot separate if g(y) = 0 anywhere in domain.

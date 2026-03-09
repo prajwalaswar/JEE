@@ -1,0 +1,88 @@
+# Algebra Knowledge Base — JEE Level
+
+## Quadratic Equations
+
+FORMULA: Standard form: ax² + bx + c = 0
+FORMULA: Quadratic formula: x = (-b ± √(b²-4ac)) / 2a
+FORMULA: Discriminant: D = b² - 4ac
+  - D > 0 → two distinct real roots
+  - D = 0 → two equal real roots
+  - D < 0 → two complex conjugate roots
+FORMULA: Sum of roots: α + β = -b/a
+FORMULA: Product of roots: α·β = c/a
+FORMULA: Roots difference: |α - β| = √D / |a|
+
+PATTERN: If sum and product of roots are given, use x² - (sum)x + (product) = 0
+COMMON_MISTAKE: Forgetting to divide the entire discriminant by 2a, not just the square root term.
+COMMON_MISTAKE: Sign error in sum of roots formula — it is -b/a, not +b/a.
+
+## Progressions
+
+FORMULA: AP (Arithmetic Progression)
+  - nth term: aₙ = a + (n-1)d
+  - Sum of n terms: Sₙ = n/2 · [2a + (n-1)d] = n/2 · (a + l)
+  - Common difference: d = aₙ - aₙ₋₁
+
+FORMULA: GP (Geometric Progression)
+  - nth term: aₙ = ar^(n-1)
+  - Sum of n terms (r≠1): Sₙ = a(rⁿ - 1)/(r - 1)
+  - Sum to infinity (|r|<1): S∞ = a/(1-r)
+  - Common ratio: r = aₙ/aₙ₋₁
+
+FORMULA: HP (Harmonic Progression) — reciprocals form AP
+  - nth term: 1/aₙ = 1/a + (n-1)d
+
+FORMULA: AM-GM-HM inequality: AM ≥ GM ≥ HM (equality when all terms equal)
+  - AM = (a+b)/2
+  - GM = √(ab)
+  - HM = 2ab/(a+b)
+
+COMMON_MISTAKE: In GP sum formula, ensure r ≠ 1. If r = 1, sum = na.
+
+## Binomial Theorem
+
+FORMULA: (a + b)ⁿ = Σ C(n,r) · aⁿ⁻ʳ · bʳ   for r = 0 to n
+FORMULA: General term: Tᵣ₊₁ = C(n,r) · aⁿ⁻ʳ · bʳ
+FORMULA: Middle term: if n even → T_{n/2+1}; if n odd → T_{(n+1)/2} and T_{(n+3)/2}
+FORMULA: C(n,r) = n! / (r! · (n-r)!)
+FORMULA: Sum of coefficients: put a=b=1 → 2ⁿ
+
+PATTERN: For finding coefficient of xᵏ, set exponent of x equal to k in general term.
+COMMON_MISTAKE: Off-by-one in general term index — general term is T_{r+1}, not Tᵣ.
+
+## Complex Numbers
+
+FORMULA: i = √(-1), i² = -1, i³ = -i, i⁴ = 1
+FORMULA: Modulus: |z| = √(a² + b²)  where z = a + bi
+FORMULA: Argument: arg(z) = arctan(b/a)  (adjust quadrant!)
+FORMULA: Polar form: z = r(cosθ + i·sinθ) = re^(iθ)
+FORMULA: De Moivre's: (cosθ + i·sinθ)ⁿ = cos(nθ) + i·sin(nθ)
+FORMULA: Conjugate: z̄ = a - bi, z·z̄ = |z|²
+
+IDENTITY: |z₁·z₂| = |z₁|·|z₂|
+IDENTITY: arg(z₁·z₂) = arg(z₁) + arg(z₂)
+COMMON_MISTAKE: Argument calculation — must consider correct quadrant using atan2.
+
+## Logarithms
+
+FORMULA: logₐ(mn) = logₐm + logₐn
+FORMULA: logₐ(m/n) = logₐm - logₐn
+FORMULA: logₐ(mⁿ) = n·logₐm
+FORMULA: Change of base: logₐb = log b / log a = ln b / ln a
+FORMULA: logₐb · logᵦa = 1
+FORMULA: aˡᵒᵍₐˣ = x
+
+COMMON_MISTAKE: Log of negative numbers is undefined in reals.
+COMMON_MISTAKE: log(a+b) ≠ log(a) + log(b)
+
+## Matrices and Determinants
+
+FORMULA: det(2×2): |a b; c d| = ad - bc
+FORMULA: Inverse of 2×2: A⁻¹ = (1/det(A)) · [d -b; -c a]
+FORMULA: Cofactor expansion along row 1: det(A) = a₁₁C₁₁ + a₁₂C₁₂ + a₁₃C₁₃
+FORMULA: Cramer's Rule: x = Dₓ/D, y = Dᵧ/D, z = D_z/D
+FORMULA: Rank of matrix = number of non-zero rows in row echelon form
+IDENTITY: det(AB) = det(A)·det(B)
+IDENTITY: det(Aᵀ) = det(A)
+IDENTITY: det(A⁻¹) = 1/det(A)
+COMMON_MISTAKE: Cofactor sign pattern: (+,-,+; -,+,-; +,-,+)

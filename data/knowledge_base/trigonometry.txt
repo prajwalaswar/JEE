@@ -1,0 +1,141 @@
+TRIGONOMETRY — JEE Mathematics Knowledge Base
+==============================================
+
+BASIC TRIGONOMETRIC RATIOS
+In a right-angled triangle with hypotenuse H, opposite side O, adjacent side A:
+  sin θ = O/H       (opposite over hypotenuse)
+  cos θ = A/H       (adjacent over hypotenuse)
+  tan θ = O/A = sin θ / cos θ
+  cot θ = A/O = cos θ / sin θ = 1/tan θ
+  sec θ = H/A = 1/cos θ
+  cosec θ = H/O = 1/sin θ
+
+STANDARD ANGLE TABLE
+  θ       0°    30°       45°       60°       90°
+  sin θ   0     1/2       √2/2      √3/2      1
+  cos θ   1     √3/2      √2/2      1/2       0
+  tan θ   0     1/√3      1         √3        undefined
+
+PYTHAGOREAN IDENTITIES
+  sin²θ + cos²θ = 1                 (fundamental identity)
+  1 + tan²θ = sec²θ                 (divide Pythagorean by cos²θ)
+  1 + cot²θ = cosec²θ               (divide Pythagorean by sin²θ)
+
+SIGN IN QUADRANTS (ASTC rule: All−Sin−Tan−Cos)
+  Quadrant I   (0°–90°)    : all positive
+  Quadrant II  (90°–180°)  : sin, cosec positive; rest negative
+  Quadrant III (180°–270°) : tan, cot positive; rest negative
+  Quadrant IV  (270°–360°) : cos, sec positive; rest negative
+
+COMPLEMENTARY ANGLE IDENTITIES
+  sin(90°−θ) = cos θ      cos(90°−θ) = sin θ
+  tan(90°−θ) = cot θ      cot(90°−θ) = tan θ
+  sec(90°−θ) = cosec θ    cosec(90°−θ) = sec θ
+
+SUPPLEMENTARY ANGLE IDENTITIES
+  sin(180°−θ) = sin θ     cos(180°−θ) = −cos θ
+  tan(180°−θ) = −tan θ
+
+NEGATIVE ANGLE IDENTITIES
+  sin(−θ) = −sin θ
+  cos(−θ) = cos θ
+  tan(−θ) = −tan θ
+
+SUM AND DIFFERENCE FORMULAS
+  sin(A+B) = sinA cosB + cosA sinB
+  sin(A−B) = sinA cosB − cosA sinB
+  cos(A+B) = cosA cosB − sinA sinB
+  cos(A−B) = cosA cosB + sinA sinB
+  tan(A+B) = (tanA + tanB) / (1 − tanA tanB)
+  tan(A−B) = (tanA − tanB) / (1 + tanA tanB)
+
+DOUBLE ANGLE FORMULAS
+  sin 2A = 2 sinA cosA = 2 tanA / (1 + tan²A)
+  cos 2A = cos²A − sin²A = 1 − 2sin²A = 2cos²A − 1 = (1−tan²A)/(1+tan²A)
+  tan 2A = 2 tanA / (1 − tan²A)
+
+TRIPLE ANGLE FORMULAS
+  sin 3A = 3 sinA − 4 sin³A
+  cos 3A = 4 cos³A − 3 cosA
+  tan 3A = (3 tanA − tan³A) / (1 − 3 tan²A)
+
+HALF ANGLE FORMULAS
+  sin(A/2) = ±√[(1 − cosA)/2]
+  cos(A/2) = ±√[(1 + cosA)/2]
+  tan(A/2) = ±√[(1 − cosA)/(1 + cosA)] = sinA/(1 + cosA) = (1 − cosA)/sinA
+
+SUM-TO-PRODUCT FORMULAS
+  sinC + sinD = 2 sin((C+D)/2) cos((C−D)/2)
+  sinC − sinD = 2 cos((C+D)/2) sin((C−D)/2)
+  cosC + cosD = 2 cos((C+D)/2) cos((C−D)/2)
+  cosC − cosD = −2 sin((C+D)/2) sin((C−D)/2)
+
+PRODUCT-TO-SUM FORMULAS
+  2 sinA cosB = sin(A+B) + sin(A−B)
+  2 cosA sinB = sin(A+B) − sin(A−B)
+  2 cosA cosB = cos(A+B) + cos(A−B)
+  2 sinA sinB = cos(A−B) − cos(A+B)
+
+SINE RULE (Law of Sines)
+For triangle with sides a, b, c opposite to angles A, B, C:
+  a/sinA = b/sinB = c/sinC = 2R
+  where R is the circumradius.
+
+COSINE RULE (Law of Cosines)
+  a² = b² + c² − 2bc cosA
+  b² = a² + c² − 2ac cosB
+  c² = a² + b² − 2ab cosC
+  cos A = (b² + c² − a²) / (2bc)
+
+TANGENT RULE
+  tan((A−B)/2) = (a−b)/(a+b) · cot(C/2)
+
+AREA OF A TRIANGLE
+  Area = (1/2) ab sinC = (1/2) bc sinA = (1/2) ac sinB
+  Area = √[s(s−a)(s−b)(s−c)]  (Heron's formula, s = (a+b+c)/2)
+
+INVERSE TRIGONOMETRIC FUNCTIONS (Principal Values)
+  y = sin⁻¹x   iff   sin y = x,   domain: [−1,1],   range: [−π/2, π/2]
+  y = cos⁻¹x   iff   cos y = x,   domain: [−1,1],   range: [0, π]
+  y = tan⁻¹x   iff   tan y = x,   domain: ℝ,         range: (−π/2, π/2)
+  y = cot⁻¹x   iff   cot y = x,   domain: ℝ,         range: (0, π)
+  y = sec⁻¹x   iff   sec y = x,   domain: |x|≥1,     range: [0,π]−{π/2}
+  y = cosec⁻¹x  iff  cosec y = x, domain: |x|≥1,     range: [−π/2,π/2]−{0}
+
+IMPORTANT INVERSE TRIG IDENTITIES
+  sin⁻¹x + cos⁻¹x = π/2             (for x ∈ [−1,1])
+  tan⁻¹x + cot⁻¹x = π/2             (for all x)
+  sec⁻¹x + cosec⁻¹x = π/2           (for |x|≥1)
+  sin⁻¹(−x) = −sin⁻¹x
+  cos⁻¹(−x) = π − cos⁻¹x
+  tan⁻¹(−x) = −tan⁻¹x
+  tan⁻¹x + tan⁻¹y = tan⁻¹((x+y)/(1−xy))  if xy < 1
+  tan⁻¹x + tan⁻¹y = π + tan⁻¹((x+y)/(1−xy))  if xy > 1 and x > 0
+
+TRIGONOMETRIC EQUATIONS — GENERAL SOLUTIONS
+  sin θ = sin α   ⟹   θ = nπ + (−1)ⁿ α,   n ∈ ℤ
+  cos θ = cos α   ⟹   θ = 2nπ ± α,         n ∈ ℤ
+  tan θ = tan α   ⟹   θ = nπ + α,           n ∈ ℤ
+
+GRAPHICAL PROPERTIES
+  Period of sin, cos: 2π     Period of tan, cot: π
+  sin oscillates between −1 and 1; cos oscillates between −1 and 1
+  tan has vertical asymptotes at x = (2n+1)π/2
+
+JEE KEY RESULTS
+  Maximum of a sinθ + b cosθ = √(a²+b²)
+  Minimum of a sinθ + b cosθ = −√(a²+b²)
+  a sinθ + b cosθ can be written as R sin(θ+φ) where R=√(a²+b²), tanφ=b/a
+
+WORKED EXAMPLE — Solve sin x = √3/2 for x ∈ [0, 2π]
+  sin x = sin(π/3)
+  x = π/3  or  x = π − π/3 = 2π/3
+  Answer: x = π/3, 2π/3
+
+WORKED EXAMPLE — Prove sin²x − sin²y = sin(x+y)sin(x−y)
+  RHS = sin(x+y)sin(x−y)
+      = [sinx cosy + cosx siny][sinx cosy − cosx siny]
+      = sin²x cos²y − cos²x sin²y
+      = sin²x(1−sin²y) − (1−sin²x)sin²y
+      = sin²x − sin²x sin²y − sin²y + sin²x sin²y
+      = sin²x − sin²y  ✓

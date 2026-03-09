@@ -1,0 +1,167 @@
+PROBABILITY & STATISTICS — JEE Mathematics Knowledge Base
+==========================================================
+
+BASIC PROBABILITY
+-----------------
+Sample space S: set of all possible outcomes of an experiment.
+Event A: any subset of S.
+P(A) = (number of favourable outcomes) / (total outcomes)   [classical definition]
+P(A) ∈ [0, 1],   P(S) = 1,   P(∅) = 0
+
+Complement rule:   P(A') = 1 − P(A)
+Addition rule:     P(A ∪ B) = P(A) + P(B) − P(A ∩ B)
+                   P(A ∪ B ∪ C) = P(A)+P(B)+P(C)−P(A∩B)−P(B∩C)−P(A∩C)+P(A∩B∩C)
+Conditional prob:  P(A|B) = P(A ∩ B) / P(B),   provided P(B) > 0
+Multiplication:    P(A ∩ B) = P(A) · P(B|A) = P(B) · P(A|B)
+
+Independent events: P(A ∩ B) = P(A) · P(B)
+  → P(A|B) = P(A) when independent
+  → independence does NOT mean mutual exclusivity
+
+Mutually exclusive: A ∩ B = ∅   →   P(A ∪ B) = P(A) + P(B)
+  → Two events with P(A)>0 and P(B)>0 CANNOT be both independent and mutually exclusive
+
+COMMON MISTAKE: Confusing independence with mutual exclusivity.
+COMMON MISTAKE: Applying classical definition when outcomes are not equally likely.
+
+TOTAL PROBABILITY THEOREM
+--------------------------
+If B₁, B₂, …, Bₙ are mutually exclusive and exhaustive (partition of S):
+  P(A) = Σᵢ P(A|Bᵢ) · P(Bᵢ)
+
+BAYES' THEOREM
+--------------
+P(Bᵢ|A) = [P(A|Bᵢ) · P(Bᵢ)] / [Σⱼ P(A|Bⱼ) · P(Bⱼ)]
+
+Prior probability: P(Bᵢ) — probability before observing A
+Posterior probability: P(Bᵢ|A) — updated probability after observing A
+Likelihood: P(A|Bᵢ)
+
+COMMON MISTAKE: Forgetting to identify ALL partitions for the denominator.
+PATTERN: Used for "reverse conditional" problems (finding cause given effect).
+
+WORKED EXAMPLE — Bayes:
+  Factory has Machine A (60% production, 3% defects) and B (40% production, 5% defects).
+  If a defective item is found, P(from A) = ?
+  P(def) = 0.6×0.03 + 0.4×0.05 = 0.018 + 0.020 = 0.038
+  P(A|def) = 0.018 / 0.038 = 9/19 ≈ 0.4737
+
+COUNTING PRINCIPLES
+--------------------
+Fundamental counting principle: if A can occur in m ways and B in n ways, they together occur in m×n ways.
+
+Permutation (ordered, no repetition):
+  P(n, r) = n!/(n−r)!
+  All n objects: n!
+
+Permutation with repetition allowed:  nʳ
+
+Circular permutation:  (n−1)!
+  Necklace (can flip): (n−1)!/2
+
+Combination (unordered, no repetition):
+  C(n, r) = n! / [r!(n−r)!]  also written ⁿCᵣ or (n choose r)
+
+KEY IDENTITIES:
+  C(n, r) = C(n, n−r)
+  C(n, 0) = C(n, n) = 1
+  C(n, r) + C(n, r−1) = C(n+1, r)   [Pascal's identity]
+  Σᵣ C(n,r) = 2ⁿ
+  C(n,0) − C(n,1) + C(n,2) − … = 0  (alternating sum)
+
+Arrangements with identical objects:  n! / (p! q! r! …)
+  where p, q, r … are counts of identical groups
+
+COMMON MISTAKE: Using permutation when order does not matter (use combination).
+COMMON MISTAKE: Not dividing by repetition count for identical objects.
+
+WORKED EXAMPLE — How many 4-letter words from "MATHEMATICS"?
+  Distinct letters: M(×2), A(×2), T(×2), H, E, I, C, S — 8 distinct types
+  Complex analysis needed by cases; SymPy or direct enumeration preferred.
+
+DISCRETE PROBABILITY DISTRIBUTIONS
+-------------------------------------
+
+Random variable X: a function from S to ℝ.
+Discrete: X takes countable values.
+
+Probability Mass Function (PMF): P(X = xᵢ = pᵢ, where Σpᵢ = 1.
+
+BINOMIAL DISTRIBUTION  X ~ B(n, p)
+  X = number of successes in n independent Bernoulli trials with P(success) = p
+  P(X = r) = C(n, r) · pʳ · (1−p)^(n−r),   r = 0, 1, 2, …, n
+  Mean:      E[X] = np
+  Variance:  Var(X) = np(1−p)
+  SD:        σ = √[np(1−p)]
+  Note: (1−p) is often written as q
+
+COMMON MISTAKE: Forgetting the C(n,r) coefficient.
+COMMON MISTAKE: Using when trials are NOT independent.
+
+WORKED EXAMPLE — Binomial:
+  A fair die is rolled 6 times. P(exactly 2 sixes)?
+  n=6, p=1/6, r=2
+  P = C(6,2)(1/6)²(5/6)⁴ = 15 × (1/36) × (625/1296) = 9375/46656 ≈ 0.2009
+
+GEOMETRIC DISTRIBUTION  X ~ Geom(p)
+  X = trial number of the FIRST success
+  P(X = k) = (1−p)^(k−1) · p,   k = 1, 2, 3, …
+  Mean:  1/p
+  Variance: (1−p)/p²
+
+POISSON DISTRIBUTION  X ~ Poisson(λ)
+  X = number of events in a fixed interval (λ = average rate)
+  P(X = k) = e^(−λ) · λᵏ / k!,   k = 0, 1, 2, …
+  Mean = Variance = λ
+  Approximates Binomial when n is large and p is small (λ = np)
+
+NORMAL DISTRIBUTION  X ~ N(μ, σ²)
+  PDF: f(x) = (1/σ√(2π)) · e^(−(x−μ)²/(2σ²))
+  Symmetric about mean μ
+  Standardise: Z = (X − μ) / σ   ~  N(0, 1)
+  Empirical rule:
+    P(μ − σ < X < μ + σ)   ≈ 0.6827 (68.27%)
+    P(μ − 2σ < X < μ + 2σ) ≈ 0.9545 (95.45%)
+    P(μ − 3σ < X < μ + 3σ) ≈ 0.9973 (99.73%)
+
+EXPECTATION AND VARIANCE
+--------------------------
+Expectation (mean):  E[X] = Σ xᵢ · P(X = xᵢ)    [discrete]
+                     E[X] = ∫ x · f(x) dx          [continuous]
+
+E[X²] = Σ xᵢ² · P(X = xᵢ)
+Variance:  Var(X) = E[X²] − (E[X])²  = E[(X−μ)²]
+Standard deviation:  SD(X) = √Var(X)
+
+Linearity of expectation:
+  E[aX + b] = a·E[X] + b
+  E[X + Y]  = E[X] + E[Y]        (always true)
+  E[XY]     = E[X]·E[Y]          (only if X, Y independent)
+
+Variance rules:
+  Var(aX + b) = a²·Var(X)
+  Var(X + Y)  = Var(X) + Var(Y)  (only if X, Y independent)
+  Var(X − Y)  = Var(X) + Var(Y)  (independent; note: still addition!)
+  Cov(X, Y)   = E[XY] − E[X]·E[Y]
+  Var(X+Y)    = Var(X) + Var(Y) + 2·Cov(X,Y)   (general case)
+
+COMMON MISTAKE: Var(X+Y) ≠ Var(X)+Var(Y) in general (only for independent X,Y).
+COMMON MISTAKE: Var(X−Y) = Var(X)+Var(Y), NOT Var(X)−Var(Y).
+
+ODDS AND PROBABILITY
+---------------------
+  Odds in favour of A = P(A) : P(A') = P(A) : (1 − P(A))
+  If odds in favour = m:n  →  P(A) = m/(m+n)
+
+JEE KEY RESULTS
+----------------
+1. P(at least one) = 1 − P(none) = 1 − (1−p)ⁿ  for n independent trials
+2. P(at least two) = 1 − P(0) − P(1) for binomial
+3. If two dice are thrown, P(sum = k):
+   P(sum=7) = 6/36 = 1/6  (highest probability)
+4. If cards are drawn from a 52-card deck:
+   P(ace) = 4/52 = 1/13
+   P(king and queen in two draws without replacement) = (4/52)·(4/51) = 16/2652
+5. Mean of uniform distribution over {1, 2, …, n}: (n+1)/2
+   Variance: (n²−1)/12
+

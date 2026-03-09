@@ -1,0 +1,50 @@
+# ─── .dockerignore ────────────────────────────────────────────────────────────
+# Files/folders excluded from the Docker build context.
+# Keeps images lean and prevents secrets from leaking into layers.
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Secrets — NEVER bake into image
+.env
+
+# Runtime-generated (rebuilt inside container)
+data/faiss_index/
+data/memory.db
+data/*.db
+
+# Logs
+*.log
+backend.log
+
+# Tests
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Dev / OS artefacts
+.git/
+.gitignore
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Documentation (not needed at runtime)
+README.md
+*.pdf
+
+# Sample media files (large, not needed by runtime)
+samples/
